@@ -176,7 +176,7 @@ new function()
 		}
 		console.log(me, 'got dot',curr_dot);
 		curr_dot.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-		a_inst.el.els.dots.scrollBy({ top: 0,left: 4, behavior: "smooth",});
+		a_inst.el.els.dots.scrollBy(6,0);
 		mdl.get_dot_by_item(a_inst).classList.add("active");
 		
 		a_inst.el.els.counter.innerHTML =
