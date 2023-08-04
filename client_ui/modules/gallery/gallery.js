@@ -175,7 +175,7 @@ new function()
 			return;
 		}
 		console.log(me, 'got dot',curr_dot);
-		curr_dot.scrollIntoView({ behavior: "smooth", block: "end", inline: "start" });
+		curr_dot.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
 		mdl.get_dot_by_item(a_inst).classList.add("active");
 		
 		a_inst.el.els.counter.innerHTML =
