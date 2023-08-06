@@ -85,7 +85,17 @@ new function()
 		}
 		return out;
 	} // mdl.dirname
-	
+	mdl.is_object = function(a_var)
+	{
+		if ( !a_var ) {return false;}
+		if ( a_var.constructor === undefined && typeof a_var === 'object' )
+		{ this.result = true; }
+		else if ( a_var.constructor === Object )
+		{ this.result = true; }
+		else
+		{ this.result = false; }
+		return this.result;
+	}
 	mdl.wdgt={};
 	mdl.wdgt.els={};
 	mdl.wdgt.els.spinner={};

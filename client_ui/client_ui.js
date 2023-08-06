@@ -1,5 +1,6 @@
 "use strict";
 const client_ui = {};
+client_ui.version = '0.1.0';
 client_ui.name = 'client_ui';
 client_ui.modules_id = ['core','gallery'];
 client_ui.mdls = {};

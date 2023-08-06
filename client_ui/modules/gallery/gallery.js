@@ -117,6 +117,34 @@ new function()
 		//console.log(me, 'done',dots.children);
 	} // dots_regen
 	
+	mdl.dots_scroll_adj = function( a_inst )
+	{
+		const me = mdl.name+'.dots_scroll_adj';
+		const dots = a_inst.el.els.dots;
+		const scrollable=dots.scrollWidth > dots.clientWidth
+		console.log(me,'scrollable?',scrollable);
+		if ( !scrollable ) { return; }
+		const dots_vis_l = dots.offsetLeft+dots.scrollLeft;
+		const dots_vis_r = dots.offsetLeft+dots.offsetWidth+dots.scrollLeft;
+		const active_dot = a_inst.active_dot;
+		const margin_l = parseInt(window.getComputedStyle(active_dot).marginLeft);
+		const dot_left =  active_dot.offsetLeft+margin_l;
+		if ( active_dot.offsetLeft < dots_vis_l )
+		{
+			console.log(me,active_dot.offsetLeft < dots_vis_l,'active_dot.offsetLeft',active_dot.offsetLeft,' < dots_vis_l',dots_vis_l);
+			const scroll = active_dot.offsetLeft-dots.offsetLeft-dots.offsetWidth+margin_l+active_dot.offsetWidth;
+			console.log(me,'scrolling <--',scroll);
+			dots.scrollTo({top:0,left:scroll,behavior:"instant"});
+		}
+		if ( active_dot.offsetLeft+active_dot.offsetWidth > dots_vis_r )
+		{
+			console.log(me,dot_left > dots_vis_r, 'dot_left',dot_left,' > dots_vis_r',dots_vis_r);
+			const scroll = active_dot.offsetLeft-dots.offsetLeft-margin_l;
+			console.log(me,'scrolling -->',scroll);
+			dots.scrollTo({top:0,left:scroll,behavior:"instant"});
+		}
+	}
+	
 	mdl.el_update = function( a_ndx, a_inst, a_direction='>' )
 	{
 		const me = mdl.name+'.el_update';
@@ -147,7 +175,8 @@ new function()
 		
 		if (a_ndx===a_inst.curr_item_ndx)
 		{
-			//console.log(me, 'a_ndx=mdl.ndx_curr, nothing to do', 'equal?',(a_ndx===a_inst.curr_item_ndx));
+			console.log(me, 'a_ndx=mdl.ndx_curr, nothing to do, but scroll adj', 'item equal?',(a_ndx===a_inst.curr_item_ndx));
+			mdl.dots_scroll_adj( a_inst );
 			return;
 		}
 		
@@ -162,22 +191,21 @@ new function()
 		
 		a_inst.curr_item_ndx = ndx_item;
 		
-		let curr_dot = mdl.get_dot_by_item(a_inst);
-		if ( !curr_dot )
+		let active_dot = mdl.get_dot_by_item(a_inst);
+		if ( !active_dot )
 		{
 			console.log(me, 'need to regen dots',a_inst.curr_item_ndx);
 			mdl.dots_regen( a_inst, a_direction );
-			curr_dot = mdl.get_dot_by_item(a_inst);
+			active_dot = mdl.get_dot_by_item(a_inst);
 		}
-		if ( !curr_dot )
+		if ( !active_dot )
 		{
 			console.error(me, 'error getting dot by iitem',a_inst.curr_item_ndx);
 			return;
 		}
-		console.log(me, 'got dot',curr_dot);
-		curr_dot.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-		a_inst.el.els.dots.scrollBy({top:0,left:1,behavior:"smooth",});
-		mdl.get_dot_by_item(a_inst).classList.add("active");
+		active_dot.classList.add("active");
+		const dots = a_inst.el.els.dots;
+		a_inst.active_dot = active_dot;
 		
 		a_inst.el.els.counter.innerHTML =
 			(ndx_item + 1)+'<span>'+
@@ -208,8 +236,16 @@ new function()
 		{
 			a_inst.el.els.nfo.innerHTML=client_ui.mdls.core.basename(img_path);
 		}
-		a_inst.old_item_ndx = a_inst.curr_item_ndx;
-		console.log(me,'done, a_inst.curr_item_ndx',);
+		
+		console.log(me,'calling dots_scroll_adj');
+		mdl.dots_scroll_adj( a_inst );
+		let active_dot_hspace = parseInt(window.getComputedStyle(active_dot).marginLeft);
+		active_dot_hspace = active_dot_hspace+parseInt(window.getComputedStyle(active_dot).marginRight);
+		active_dot_hspace = active_dot_hspace+parseInt(window.getComputedStyle(active_dot).paddingRight);
+		active_dot_hspace = active_dot_hspace+parseInt(window.getComputedStyle(active_dot).paddingLeft);
+		active_dot_hspace = active_dot_hspace+active_dot.offsetWidth;
+		
+		console.log(me,'done, a_inst.curr_item_ndx');
 	} // el_update
 	
 	mdl.on_wdgt_close= function()
@@ -225,7 +261,7 @@ new function()
 		const app = client_ui;
 		const wdgt= app.mdls.core.wdgt;
 		//console.log(me,'getting wdgt overflow');
-		a_inst.el = wdgt.get('overflow',{title:'Modal gallery '+a_inst.name});
+		a_inst.el = wdgt.get('overflow',{title:a_inst.cfg.title});
 		a_inst.el.classList.add("mdl_gallery");
 		//console.log(me,'adding listener to mdl.el.ac.events_c.wdgt_close',a_inst.el.ac.events_c.wdgt_close);
 		document.addEventListener( a_inst.el.ac.events_c.wdgt_close.type, mdl.on_wdgt_close,false );
@@ -323,12 +359,14 @@ new function()
 	mdl.create = function (a_cfg)
 	{
 		const me = mdl.name+'.create';
+		const app = client_ui.mdls.core;
 		console.log(me);
 		const cfg =
 		{
 			selector: "body",
 			loop: true,
 			forward: undefined,
+			title: undefined,
 			prev: undefined,
 			dot_max: undefined,
 			//dot_max: false,
@@ -390,6 +428,21 @@ new function()
 		if ( inst.cfg.dot_max > inst.items.length )
 		{
 			inst.cfg.dot_max=inst.items.length;
+		}
+		
+		if ( app.is_object(inst.cfg.title) )
+		{
+			if ( inst.cfg.title.cfg==='auto' )
+			{
+				inst.cfg.title='auto title';
+				let txt = inst.items[0].parentElement.previousElementSibling.innerText;
+				if ( !txt ) { txt = ''; }
+				inst.cfg.title = txt;
+			}
+		}
+		else if ( typeof inst.cfg.title !== 'string' )
+		{
+			inst.cfg.title='';
 		}
 		
 		inst.touch = { endX: 0, startX: 0 };

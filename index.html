@@ -120,12 +120,13 @@ https://github.com/sallecta/client_ui</a>.</p>
 				<img src="imgs/saa-r-r9kryH8RfAg-unsplash.small.jpg" alt="" data-large="imgs/saa-r-r9kryH8RfAg-unsplash.jpg">
 				<img src="imgs/veronica-wu-4f8u5mFGKjw-unsplash.small.jpg" alt="" data-large="imgs/veronica-wu-4f8u5mFGKjw-unsplash.jpg"> 
 				<img src="imgs/yan-liu-yDLGDavu3bo-unsplash.small.jpg" alt="" data-large="imgs/yan-liu-yDLGDavu3bo-unsplash.jpg">
+				<img src="imgs/cheng-3-E5ac0oudiJQ-unsplash.small.jpg" alt="" data-large="imgs/cheng-3-E5ac0oudiJQ-unsplash0.jpg"> 
 		</div><!--huge_gallery-->
 		<script  src="client_ui/client_ui.js"></script>
 		<script>
 		client_ui.run = function()
 		{
-			client_ui.mdls.gallery.create({selector:'.gallery1', nfo:{cfg:'file'}, title:{cfg:'auto'}});
+			client_ui.mdls.gallery.create({selector:'.gallery1', nfo:{cfg:'file'}, title:client_ui.name+' '+client_ui.version});
 			client_ui.mdls.gallery.create({selector:'.gallery2', nfo:{cfg:'file'}, title:{cfg:'auto'}});
 			client_ui.mdls.gallery.create({selector:'.huge_gallery', nfo:{cfg:'file'}, title:{cfg:'auto'}});
 		}
