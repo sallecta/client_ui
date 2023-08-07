@@ -1,6 +1,6 @@
 "use strict";
 const client_ui = {};
-client_ui.version = '0.1.0';
+client_ui.version = '0.1.1';
 client_ui.name = 'client_ui';
 client_ui.resources = ['core','gallery'];
 client_ui.resources = [];
@@ -113,8 +113,6 @@ client_ui.exec = function(a_ev)
 	}
 	else
 	{
-		console.log(me, 'executing internal demo');
-		client_ui.mdls.gallery.create({selector:'.gallery1', nfo:{cfg:'file'}, title:{cfg:'auto'}});
-		client_ui.mdls.gallery.create();
+		console.warn(me, 'missing client_ui.run(), nothing to do');
 	}
 }

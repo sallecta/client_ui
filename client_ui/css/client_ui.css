@@ -23,6 +23,11 @@ body .wdgt_spinner
 	}
 }
 
+body .pointer
+{
+	cursor: pointer;
+} 
+
 body .wdgt_overflow.dspl_blck {
 	display: flex;
 	padding: 1rem;

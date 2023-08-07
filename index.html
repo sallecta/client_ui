@@ -3,25 +3,14 @@
 	<head>
 	<meta charset="UTF-8">
 	<title>Client UI</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="client_ui/css/client_ui.css">
-	<style>
-		img { width:5rem;height:5rem;object-fit:cover; border-radius:0.5rem; }
-		body *
-		{
-			font-family: sans-serif;
-			font-size: 0.8rem;
-			color: #000000b8;
-			text-align: center;
-			padding: 0.2rem;
-		}
-	</style>
+	<link rel="stylesheet" href="docs/docs.css" type="text/css">
 	</head>
 	<body>
 		<h1>Client UI</h1>
 		<p>Home <a href="https://sallecta.github.io/client_ui">https://sallecta.github.io/client_ui</a>.</p>
-		<p>Github <a href="
-https://github.com/sallecta/client_ui">
-https://github.com/sallecta/client_ui</a>.</p>
+		<p>Github <a href="https://github.com/sallecta/client_ui">https://github.com/sallecta/client_ui</a>.</p>
 		<h2>Client UI Gallery example</h2>
 		<p>View <a href="docs/gallery.html">gallery example</a>.</p>
+		<script  src="client_ui/client_ui.js"></script>
+		<script>client_ui.run=function(){el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version}</script>
 </html>

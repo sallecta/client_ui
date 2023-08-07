@@ -9,6 +9,7 @@ new function()
 	mdl.defs = {};
 	mdl.defs.cl_vis='vis_op1';
 	mdl.defs.cl_dspl_blck='dspl_blck';
+	mdl.defs.cl_pntr='pointer';
 	Object.freeze(mdl.defs);
 	
 	mdl.inst_count = 0;
@@ -314,18 +315,17 @@ new function()
 		for (let ndx = 0; ndx < a_inst.items.length; ndx++) 
 		{
 			const item = a_inst.items[ndx];
-			
+			console.log(me,'adding pointer style to',item);
+			item.classList.add(mdl.defs.cl_pntr);
 			console.log(me,'adding onclick to item',item.src);
 			item.click_handler = function(a_ev)
 			{
 				const me = mdl.name+'.create_els item.click_handler';
-				//console.log(me,'item.click_handler','target.ndx=',ndx);
-				//console.log(me,'item.click_handler','showing',a_inst.el);
 				a_inst.el.ac.show();
 				mdl.el_update(ndx,a_inst);
 			};
 			const to_fn = {};
-			to_fn.a_inst = a_inst;
+			//to_fn.a_inst = a_inst;
 			item.addEventListener("click", item.click_handler.bind(to_fn));
 		}
 		
