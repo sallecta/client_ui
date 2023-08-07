@@ -338,7 +338,7 @@ new function()
 				//console.log(me,'skipping dot from', ndx);
 				break;
 			}
-			const dot = document.createElement("button");
+			const dot = document.createElement("div");
 			if (a_inst.cfg.dot_numb)
 			{
 				dot.innerHTML = ndx+1;

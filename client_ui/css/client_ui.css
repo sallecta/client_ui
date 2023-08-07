@@ -220,31 +220,31 @@ body .wdgt_overflow .bot div {
 	margin-bottom: 2rem;
 }
 
-.mdl_gallery .dots button {
+.mdl_gallery .dots div {
 	background-color: #ffffff21;
 	border: 0;
 	outline: 0;
-	border-radius: 1rem;
-	font-size: 0.8rem;
+	border-radius: 7px;
+	font-size: 10px;
 	color: #fffafa6b;
 	font-weight: bold;
 	font-family: monospace;
 	box-sizing: content-box;
-	line-height: 0.8rem;
-	display: inline-block;
-	padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+	line-height: 10px;
+	padding: 2px 7px 2px 7px;
 }
-.mdl_gallery .dots button:hover {
+
+.mdl_gallery .dots div:hover {
 	background-color: #ffffffb3;
 	color: #00000082;
 }
-.mdl_gallery .dots button:hover.active,
-.mdl_gallery .dots button.active {
+.mdl_gallery .dots div:hover.active,
+.mdl_gallery .dots div.active {
 	background-color: #ffffff8c;
 	color: #000000bf;
 }
 
-.mdl_gallery .dots button:not(:first-child) {
+.mdl_gallery .dots div:not(:first-child) {
   margin-left: 10px;
 }
 .mdl_gallery .forward, .mdl_gallery .backward {
