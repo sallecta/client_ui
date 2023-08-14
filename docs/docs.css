@@ -8,6 +8,7 @@ body *
 body
 {
 	padding-bottom:1rem;
+	background: linear-gradient(to bottom, #0004ff17 0%,#f90a0a0d 5%,#0dfbd900 10%, #ff00000a 95%, #0141ff14 100%);
 }
 img.logo
 {
