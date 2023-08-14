@@ -13,3 +13,28 @@ img { width:5rem; height:5rem; object-fit:cover; border-radius:0.5rem; }
 h1,h2,h3,h4,h5,h6{ padding: 1rem 0 0.8rem 0; margin: 0; }
 
 p { padding: 0.3rem;  margin: 0; }
+
+/* sortman example */
+table.sortman, .sortman th, .sortman td
+{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 0.2rem 0.4rem;
+	margin: auto;
+}
+.sortman.divs
+{
+	display: flex;
+	justify-content: center;
+}
+.sortman.divs div
+{
+	display:block;
+	height:50px;
+	width:50px;
+	margin:10px;
+	background:lightgrey;
+	border:3px pink solid;
+	float:left;
+}
+/* end sortman example */

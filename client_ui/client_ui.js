@@ -1,12 +1,13 @@
 "use strict";
 const client_ui = {};
-client_ui.version = '0.1.1';
+client_ui.version = '0.2.0';//https://semver.org/
 client_ui.name = 'client_ui';
 client_ui.resources = ['core','gallery'];
 client_ui.resources = [];
 client_ui.resources.push({type:'css',id:'client_ui',});
 client_ui.resources.push({type:'module',id:'core',});
 client_ui.resources.push({type:'module',id:'gallery',});
+client_ui.resources.push({type:'module',id:'sortman',});
 client_ui.mdls = {};
 client_ui.load_err = false;
 client_ui.events = {};
@@ -108,7 +109,7 @@ client_ui.exec = function(a_ev)
 	const me = 'client_ui.exec';
 	if (typeof client_ui.run === "function")
 	{
-		console.log(me, 'executing external function client_ui.run');
+		//console.log(me, 'executing external function client_ui.run');
 		client_ui.run();
 	}
 	else

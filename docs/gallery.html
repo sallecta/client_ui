@@ -2,7 +2,7 @@
 <html lang="en" >
 	<head>
 	<meta charset="UTF-8">
-	<title>Client UI gallery example</title>
+	<title>Client UI Gallery examples</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../docs/docs.css" type="text/css">
 	<style>
@@ -10,9 +10,10 @@
 	</head>
 	<body>
 		<h1>Client UI</h1>
-		<p>Home <a href="https://sallecta.github.io/client_ui">https://sallecta.github.io/client_ui</a>.</p>
+		<p>Site <a href="https://sallecta.github.io/client_ui">https://sallecta.github.io/client_ui</a>.</p>
 		<p>Github <a href="https://github.com/sallecta/client_ui">https://github.com/sallecta/client_ui</a>.</p>
-		<h2>Client UI Gallery example</h2>
+		<p><a href="../index.html">Home</a>.</p>
+		<h2>Client UI Gallery examples</h2>
 		<h3>First gallery</h3>
 		<div class="gallery1">
 			<img src="../imgs/cheng-3-E5ac0oudiJQ-unsplash.small.jpg" alt="" data-large="../imgs/cheng-3-E5ac0oudiJQ-unsplash0.jpg"> 
@@ -114,9 +115,9 @@
 		client_ui.run = function()
 		{
 			el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version;
-			client_ui.mdls.gallery.create({selector:'.gallery1', dot_max:3, nfo:{cfg:'file'}, title:client_ui.name+' '+client_ui.version});
-			client_ui.mdls.gallery.create({selector:'.gallery2', nfo:{cfg:'file'}, title:{cfg:'auto'}});
-			client_ui.mdls.gallery.create({selector:'.huge_gallery', nfo:{cfg:'file'}, title:{cfg:'auto'}});
+			client_ui.mdls.gallery.run({selector:'.gallery1', dot_max:3, nfo:{cfg:'file'}, title:client_ui.name+' '+client_ui.version});
+			client_ui.mdls.gallery.run({selector:'.gallery2', nfo:{cfg:'file'}, title:{cfg:'auto'}});
+			client_ui.mdls.gallery.run({selector:'.huge_gallery', nfo:{cfg:'file'}, title:{cfg:'auto'}});
 		}
 		</script>
 	</body>

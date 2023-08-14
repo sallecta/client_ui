@@ -57,7 +57,7 @@ new function()
 		let ndx, cond;
 		if ( a_direction == '>')
 		{
-			console.log(me, 'starting from item',item_ndx, 'a_direction=',a_direction);
+			//console.log(me, 'starting from item',item_ndx, 'a_direction=',a_direction);
 			for (let ndx = 0; ndx < dots.children.length; ndx++) 
 			{
 				if ( !a_inst.items[item_ndx] )
@@ -65,7 +65,7 @@ new function()
 					//console.log(me, 'no more items from',item_ndx);
 					item_ndx = 0;
 				}
-				console.log(me, 'working with',item_ndx,a_direction);
+				//console.log(me, 'working with',item_ndx,a_direction);
 				const dot = dots.children[ndx];
 				dot.item_ndx = item_ndx;
 				if (a_inst.cfg.dot_numb)
@@ -87,15 +87,15 @@ new function()
 		}
 		if ( a_direction == '<')
 		{
-			console.log(me, 'starting from',item_ndx, 'a_direction=',a_direction);
+			//console.log(me, 'starting from',item_ndx, 'a_direction=',a_direction);
 			for (let ndx = dots.children.length-1; ndx > -1; ndx--) 
 			{
 				if ( !a_inst.items[item_ndx] )
 				{
-					console.log(me, '-- no more items from',item_ndx,'a_inst.items.length=',a_inst.items.length);
+					//console.log(me, '-- no more items from',item_ndx,'a_inst.items.length=',a_inst.items.length);
 					item_ndx = a_inst.items.length-1;
 				}
-				console.log(me, 'working with',item_ndx, a_direction);
+				//console.log(me, 'working with',item_ndx, a_direction);
 				const dot = dots.children[ndx];
 				dot.item_ndx = item_ndx;
 				if (a_inst.cfg.dot_numb)
@@ -123,7 +123,7 @@ new function()
 		const me = mdl.name+'.dots_scroll_adj';
 		const dots = a_inst.el.els.dots;
 		const scrollable=dots.scrollWidth > dots.clientWidth
-		console.log(me,'scrollable?',scrollable);
+		//console.log(me,'scrollable?',scrollable);
 		if ( !scrollable ) { return; }
 		const dots_vis_l = dots.offsetLeft+dots.scrollLeft;
 		const dots_vis_r = dots.offsetLeft+dots.offsetWidth+dots.scrollLeft;
@@ -132,16 +132,16 @@ new function()
 		const dot_left =  active_dot.offsetLeft+margin_l;
 		if ( active_dot.offsetLeft < dots_vis_l )
 		{
-			console.log(me,active_dot.offsetLeft < dots_vis_l,'active_dot.offsetLeft',active_dot.offsetLeft,' < dots_vis_l',dots_vis_l);
+			//console.log(me,active_dot.offsetLeft < dots_vis_l,'active_dot.offsetLeft',active_dot.offsetLeft,' < dots_vis_l',dots_vis_l);
 			const scroll = active_dot.offsetLeft-dots.offsetLeft-dots.offsetWidth+margin_l+active_dot.offsetWidth;
-			console.log(me,'scrolling <--',scroll);
+			//console.log(me,'scrolling <--',scroll);
 			dots.scrollTo({top:0,left:scroll,behavior:"instant"});
 		}
 		if ( active_dot.offsetLeft+active_dot.offsetWidth > dots_vis_r )
 		{
-			console.log(me,dot_left > dots_vis_r, 'dot_left',dot_left,' > dots_vis_r',dots_vis_r);
+			//console.log(me,dot_left > dots_vis_r, 'dot_left',dot_left,' > dots_vis_r',dots_vis_r);
 			const scroll = active_dot.offsetLeft-dots.offsetLeft-margin_l;
-			console.log(me,'scrolling -->',scroll);
+			//console.log(me,'scrolling -->',scroll);
 			dots.scrollTo({top:0,left:scroll,behavior:"instant"});
 		}
 	}
@@ -176,7 +176,7 @@ new function()
 		
 		if (a_ndx===a_inst.curr_item_ndx)
 		{
-			console.log(me, 'a_ndx=mdl.ndx_curr, nothing to do, but scroll adj', 'item equal?',(a_ndx===a_inst.curr_item_ndx));
+			//console.log(me, 'a_ndx=mdl.ndx_curr, nothing to do, but scroll adj', 'item equal?',(a_ndx===a_inst.curr_item_ndx));
 			mdl.dots_scroll_adj( a_inst );
 			return;
 		}
@@ -188,20 +188,20 @@ new function()
 			a_inst.el.els.item.remove();
 		}
 		
-		console.log(me,'ndx_item', ndx_item);
+		//console.log(me,'ndx_item', ndx_item);
 		
 		a_inst.curr_item_ndx = ndx_item;
 		
 		let active_dot = mdl.get_dot_by_item(a_inst);
 		if ( !active_dot )
 		{
-			console.log(me, 'need to regen dots',a_inst.curr_item_ndx);
+			//console.log(me, 'need to regen dots',a_inst.curr_item_ndx);
 			mdl.dots_regen( a_inst, a_direction );
 			active_dot = mdl.get_dot_by_item(a_inst);
 		}
 		if ( !active_dot )
 		{
-			console.error(me, 'error getting dot by iitem',a_inst.curr_item_ndx);
+			//console.error(me, 'error getting dot by iitem',a_inst.curr_item_ndx);
 			return;
 		}
 		active_dot.classList.add("active");
@@ -238,7 +238,7 @@ new function()
 			a_inst.el.els.nfo.innerHTML=client_ui.mdls.core.basename(img_path);
 		}
 		
-		console.log(me,'calling dots_scroll_adj');
+		//console.log(me,'calling dots_scroll_adj');
 		mdl.dots_scroll_adj( a_inst );
 		let active_dot_hspace = parseInt(window.getComputedStyle(active_dot).marginLeft);
 		active_dot_hspace = active_dot_hspace+parseInt(window.getComputedStyle(active_dot).marginRight);
@@ -246,7 +246,7 @@ new function()
 		active_dot_hspace = active_dot_hspace+parseInt(window.getComputedStyle(active_dot).paddingLeft);
 		active_dot_hspace = active_dot_hspace+active_dot.offsetWidth;
 		
-		console.log(me,'done, a_inst.curr_item_ndx');
+		//console.log(me,'done, a_inst.curr_item_ndx');
 	} // el_update
 	
 	mdl.on_wdgt_close= function()
@@ -258,7 +258,7 @@ new function()
 	mdl.create_els = function( a_inst )
 	{
 		const me = mdl.name+'.create_els';
-		console.log(me,'a_inst=',a_inst);
+		//console.log(me,'a_inst=',a_inst);
 		const app = client_ui;
 		const wdgt= app.mdls.core.wdgt;
 		//console.log(me,'getting wdgt overflow');
@@ -315,9 +315,9 @@ new function()
 		for (let ndx = 0; ndx < a_inst.items.length; ndx++) 
 		{
 			const item = a_inst.items[ndx];
-			console.log(me,'adding pointer style to',item);
+			//console.log(me,'adding pointer style to',item);
 			item.classList.add(mdl.defs.cl_pntr);
-			console.log(me,'adding onclick to item',item.src);
+			//console.log(me,'adding onclick to item',item.src);
 			item.click_handler = function(a_ev)
 			{
 				const me = mdl.name+'.create_els item.click_handler';
@@ -356,11 +356,11 @@ new function()
 		//console.log(me,'done');
 	}; // create_els
 	
-	mdl.create = function (a_cfg)
+	mdl.run = function (a_cfg)
 	{
-		const me = mdl.name+'.create';
+		const me = mdl.name+'.run';
 		const app = client_ui.mdls.core;
-		console.log(me);
+		//console.log(me);
 		const cfg =
 		{
 			selector: "body",
@@ -413,7 +413,7 @@ new function()
 			}
 		}
 		
-		console.log(me,'got items=',items);
+		//console.log(me,'got items=',items);
 		
 		mdl.inst_count = mdl.inst_count + 1;
 		const inst_name = 'inst' + mdl.inst_count;
@@ -447,7 +447,7 @@ new function()
 		
 		inst.touch = { endX: 0, startX: 0 };
 		mdl.create_els(inst);
-		console.log(me,'created instance', inst);
+		//console.log(me,'created instance', inst);
 	} // create
 	
 	/**/
@@ -455,7 +455,7 @@ new function()
 	{
 		const me = mdl.name+'.add_module';
 		client_ui.mdls[mdl.key] = mdl;
-		console.log(me,'done');
+		//console.log(me,'done');
 	}
 	document.addEventListener( client_ui.events.ready.name, add_module,false );
 }
