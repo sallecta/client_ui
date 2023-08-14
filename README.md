@@ -1,6 +1,6 @@
 # Client UI
 
-## Home
+## Site
 https://sallecta.github.io/client_ui
 
 ## Github
