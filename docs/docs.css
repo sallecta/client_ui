@@ -9,6 +9,22 @@ body
 {
 	padding-bottom:1rem;
 }
+img.logo
+{
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: calc( 50% - 50px );
+	margin-right: -200px;
+	opacity:0.7;
+	transition:200ms opacity;
+}
+img.logo:hover
+{
+	opacity:1;
+}
 img
 {
 	width:5rem;
