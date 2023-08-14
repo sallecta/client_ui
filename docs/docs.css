@@ -54,12 +54,14 @@ table.sortman, .sortman th, .sortman td
 }
 .sortman.divs div
 {
-	display:block;
-	height:50px;
-	width:50px;
-	margin:10px;
-	background:lightgrey;
-	border:3px pink solid;
-	float:left;
+	display: flex;
+	height: 50px;
+	width: 50px;
+	margin: 10px;
+	background: lightgrey;
+	border: 3px pink solid;
+	float: left;
+	align-items: center;
+	justify-content: center;
 }
 /* end sortman example */
