@@ -1,6 +1,6 @@
 "use strict";
 const client_ui = {};
-client_ui.version = '0.2.0';//https://semver.org/
+client_ui.version = '0.3.0';//https://semver.org/
 client_ui.name = 'client_ui';
 client_ui.resources = ['core','gallery'];
 client_ui.resources = [];
@@ -8,6 +8,7 @@ client_ui.resources.push({type:'css',id:'client_ui',});
 client_ui.resources.push({type:'module',id:'core',});
 client_ui.resources.push({type:'module',id:'gallery',});
 client_ui.resources.push({type:'module',id:'sortman',});
+client_ui.resources.push({type:'module',id:'to_top',});
 client_ui.mdls = {};
 client_ui.load_err = false;
 client_ui.events = {};

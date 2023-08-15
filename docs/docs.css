@@ -82,3 +82,16 @@ table.sortman, .sortman th, .sortman td
 	justify-content: center;
 }
 /* end sortman example */
+
+/* to_top example */
+
+.narrow
+{
+	width: 50%;
+	margin: 0 auto;
+}
+.narrow p
+{
+	text-align: left;
+}
+/* end to_top example */
