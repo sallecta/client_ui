@@ -286,7 +286,7 @@ new function()
 		
 		dest_els[0].parentElement.style.setProperty('--disp', new_inst.display);
 		dest_els[0].parentElement.classList.add('sortman');
-		//console.log('display',new_inst.display);
+		return new_inst;
 	} // mdl.run
 
 	/**/
