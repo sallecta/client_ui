@@ -143,8 +143,8 @@ new function()
 			return false;
 		}
 		el.classList.remove(mdl.defs.cl_dest);
-		el.classList.remove(mdl.cl_dir);
 		el.classList.remove(mdl.defs.cl_src);
+		//console.log(me);
 	};
 	mdl.ev.dest_d_enter = function( a_ev )
 	{
@@ -156,7 +156,19 @@ new function()
 			//console.warn(me,'failed to get dest el',el);
 			return false;
 		}
-		//console.log(me,'el',el,'inst',this.inst);
+		if ( !this.inst.el_dest )
+		{
+			this.inst.el_dest=el;
+		}
+		
+		if ( this.inst.el_dest !== el )
+		{
+			//console.log(me,'updating el_dest to',el);
+			this.inst.el_dest.classList.remove(mdl.defs.cl_dest);
+			this.inst.el_dest.classList.remove(mdl.defs.cl_src);
+			this.inst.el_dest=el;
+		}
+		
 		el.classList.add(mdl.defs.cl_dest);
 		if ( el.ac.ndx < this.inst.el_src.ac.ndx )
 		{
@@ -175,16 +187,17 @@ new function()
 	};
 	mdl.ev.dest_d_leave=function( a_ev )
 	{
-		const me = mdl.name+'.ev.dest_d_leave';
-		const el = mdl.get_valid_el( a_ev.target );
-		if ( !el )
-		{
-			console.warn(me,'failed to get dest el',el);
-			return false;
-		}
-		el.classList.remove(mdl.defs.cl_dest);
-		el.classList.remove(mdl.cl_dir);
-		el.classList.remove(mdl.defs.cl_src);
+		/* fires after drag enter ev, useless. */
+		//const me = mdl.name+'.ev.dest_d_leave';
+		//const el = mdl.get_valid_el( a_ev.target );
+		//if ( !el )
+		//{
+			//console.warn(me,'failed to get dest el',el);
+			//return false;
+		//}
+		////console.log(me,'el',el);
+		//el.classList.remove(mdl.defs.cl_dest);
+		//el.classList.remove(mdl.defs.cl_src);
 	};
 	mdl.ev.dest_d_drop = function( a_ev )
 	{
@@ -197,7 +210,6 @@ new function()
 		}
 		a_ev.preventDefault();
 		el.classList.remove(mdl.defs.cl_dest);
-		el.classList.remove(mdl.cl_dir);
 		el.classList.remove(mdl.defs.cl_src);
 		if ( el == this.inst.el_src )
 		{

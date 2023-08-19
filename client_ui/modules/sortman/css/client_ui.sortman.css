@@ -5,12 +5,10 @@
 .sortman .src
 {
 	display: var(--disp);
-	margin:auto;
 }
 .sortman .dest
 {
 	display: var(--disp);
-	margin:auto;
 	outline-color: #73b01a;
 	outline-style: solid;
 	outline-width: 0.2rem;
@@ -20,9 +18,11 @@
 }
 .sortman li.src
 {
+	margin:auto;
 	width: fit-content;
 }
 .sortman li.dest
 {
+	margin:auto;
 	width: fit-content;
 }

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" >
+	<head>
+	<meta charset="UTF-8">
+	<title>Client UI Sortman form fields example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="../logo/favicon.png">
+	<link rel="stylesheet" href="../docs/docs.css" type="text/css">
+	<style>
+	</style>
+	</head>
+	<body>
+		<img class="logo" src="../logo/logo.png" alt="logo"/>
+		<h1>Client UI</h1>
+		<p>Site <a href="https://sallecta.github.io/client_ui">https://sallecta.github.io/client_ui</a>.</p>
+		<p>Github <a href="https://github.com/sallecta/client_ui">https://github.com/sallecta/client_ui</a>.</p>
+		<p><a href="../index.html">Home</a>.</p>
+		<h2>Client UI Sortman examples</h2>
+		<p><a href="sortman.html">Visit</a>.</p>
+		<h3 class="incomplite">Client UI Sortman form fields example</h3>
+<pre><code>client_ui.run = function()
+{
+	client_ui.mdls.sortman.run('.field');
+}
+</code></pre>
+			<form method="post" id="field_form" class="sortman">
+				<div id="editfields" class="sortman" >
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f0_1">Name</label>
+								<input id="f0_1" type="text" class="text" name="field_0_key" value="site_email"/>
+							</div>
+							<div>
+								<label for="f0_2">About</label>
+								<input id="f0_2" type="text" class="text" name="field_0_about" value="Email"/>
+							</div>
+							<div>
+								<label for="f0_3">Scope</label>
+								<select id="f0_3" name="field_0_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f0_4">Type</label>
+								<select id="f0_4" name="field_0_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f0_5">Value</label>
+							<input id="f0_5" type="text" class="text" name="field_0_value" value="info@example.org"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f1_1">Name</label>
+								<input id="f1_1" type="text" class="text" name="field_1_key" value="site_role"/>
+							</div>
+							<div>
+								<label for="f1_2">About</label>
+								<input id="f1_2" type="text" class="text" name="field_1_about" value=""/>
+							</div>
+							<div>
+								<label for="f1_3">Scope</label>
+								<select id="f1_3" name="field_1_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f1_4">Type</label>
+								<select id="f1_4" name="field_1_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f1_5">Value</label>
+							<input id="f1_5" type="text" class="text" name="field_1_value" value="Site role text"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f2_1">Name</label>
+								<input id="f2_1" type="text" class="text" name="field_2_key" value="site_phone"/>
+							</div>
+							<div>
+								<label for="f2_2">About</label>
+								<input id="f2_2" type="text" class="text" name="field_2_about" value=""/>
+							</div>
+							<div>
+								<label for="f2_3">Scope</label>
+								<select id="f2_3" name="field_2_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f2_4">Type</label>
+								<select id="f2_4" name="field_2_type" class="text short">
+									<option value="text">Text field</option>
+									<option value="textfull" selected="selected">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f2_5">Value</label>
+							<input id="f2_5" type="text" class="text" name="field_2_value" value="+0 000 000 00 00"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f3_1">Name</label>
+								<input id="f3_1" type="text" class="text" name="field_3_key" value="site_location"/>
+							</div>
+							<div>
+								<label for="f3_2">About</label>
+								<input id="f3_2" type="text" class="text" name="field_3_about" value=""/>
+							</div>
+							<div>
+								<label for="f3_3">Scope</label>
+								<select id="f3_3" name="field_3_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f3_4">Type</label>
+								<select id="f3_4" name="field_3_type" class="text short">
+									<option value="text">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor" selected="selected">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f3_5">Value</label>
+							<input id="f3_5" type="text" class="text" name="field_3_value" value="22455, Some country, some city, some street 54, 77"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f4_1">Name</label>
+								<input id="f4_1" type="text" class="text" name="field_4_key" value="site_url"/>
+							</div>
+							<div>
+								<label for="f4_2">About</label>
+								<input id="f4_2" type="text" class="text" name="field_4_about" value="real site url"/>
+							</div>
+							<div>
+								<label for="f4_3">Scope</label>
+								<select id="f4_3" name="field_4_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f4_4">Type</label>
+								<select id="f4_4" name="field_4_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f4_5">Value</label>
+							<input id="f4_5" type="text" class="text" name="field_4_value" value="/conger"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f5_1">Name</label>
+								<input id="f5_1" type="text" class="text" name="field_5_key" value="site_logo"/>
+							</div>
+							<div>
+								<label for="f5_2">About</label>
+								<input id="f5_2" type="text" class="text" name="field_5_about" value=""/>
+							</div>
+							<div>
+								<label for="f5_3">Scope</label>
+								<select id="f5_3" name="field_5_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f5_4">Type</label>
+								<select id="f5_4" name="field_5_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f5_5">Value</label>
+							<input id="f5_5" type="text" class="text" name="field_5_value" value="modules/client/img/logo/logo.png"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f6_1">Name</label>
+								<input id="f6_1" type="text" class="text" name="field_6_key" value="site_name_ex"/>
+							</div>
+							<div>
+								<label for="f6_2">About</label>
+								<input id="f6_2" type="text" class="text" name="field_6_about" value=""/>
+							</div>
+							<div>
+								<label for="f6_3">Scope</label>
+								<select id="f6_3" name="field_6_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f6_4">Type</label>
+								<select id="f6_4" name="field_6_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f6_5">Value</label>
+							<input id="f6_5" type="text" class="text" name="field_6_value" value="Conger CMS"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f7_1">Name</label>
+								<input id="f7_1" type="text" class="text" name="field_7_key" value="favicon"/>
+							</div>
+							<div>
+								<label for="f7_2">About</label>
+								<input id="f7_2" type="text" class="text" name="field_7_about" value=""/>
+							</div>
+							<div>
+								<label for="f7_3">Scope</label>
+								<select id="f7_3" name="field_7_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f7_4">Type</label>
+								<select id="f7_4" name="field_7_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f7_5">Value</label>
+							<input id="f7_5" type="text" class="text" name="field_7_value" value="modules/client/img/favicon/favicon.png"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f8_1">Name</label>
+								<input id="f8_1" type="text" class="text" name="field_8_key" value="editor_type"/>
+							</div>
+							<div>
+								<label for="f8_2">About</label>
+								<input id="f8_2" type="text" class="text" name="field_8_about" value=""/>
+							</div>
+							<div>
+								<label for="f8_3">Scope</label>
+								<select id="f8_3" name="field_8_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f8_4">Type</label>
+								<select id="f8_4" name="field_8_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f8_5">Value</label>
+							<input id="f8_5" type="text" class="text" name="field_8_value" value="advanced"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f9_1">Name</label>
+								<input id="f9_1" type="text" class="text" name="field_9_key" value="img_wide"/>
+							</div>
+							<div>
+								<label for="f9_2">About</label>
+								<input id="f9_2" type="text" class="text" name="field_9_about" value=""/>
+							</div>
+							<div>
+								<label for="f9_3">Scope</label>
+								<select id="f9_3" name="field_9_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f9_4">Type</label>
+								<select id="f9_4" name="field_9_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f9_5">Value</label>
+							<input id="f9_5" type="text" class="text" name="field_9_value" value=""/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f10_1">Name</label>
+								<input id="f10_1" type="text" class="text" name="field_10_key" value="about"/>
+							</div>
+							<div>
+								<label for="f10_2">About</label>
+								<input id="f10_2" type="text" class="text" name="field_10_about" value="page summary"/>
+							</div>
+							<div>
+								<label for="f10_3">Scope</label>
+								<select id="f10_3" name="field_10_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system">System</option>
+									<option value="page" selected="selected">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f10_4">Type</label>
+								<select id="f10_4" name="field_10_type" class="text short">
+									<option value="text">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor" selected="selected">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f10_5">Value</label>
+							<input id="f10_5" type="text" class="text" name="field_10_value" value=""/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f11_1">Name</label>
+								<input id="f11_1" type="text" class="text" name="field_11_key" value="footer1"/>
+							</div>
+							<div>
+								<label for="f11_2">About</label>
+								<input id="f11_2" type="text" class="text" name="field_11_about" value="theme footer 1"/>
+							</div>
+							<div>
+								<label for="f11_3">Scope</label>
+								<select id="f11_3" name="field_11_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f11_4">Type</label>
+								<select id="f11_4" name="field_11_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f11_5">Value</label>
+							<input id="f11_5" type="text" class="text" name="field_11_value" value=""/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f12_1">Name</label>
+								<input id="f12_1" type="text" class="text" name="field_12_key" value="footer2"/>
+							</div>
+							<div>
+								<label for="f12_2">About</label>
+								<input id="f12_2" type="text" class="text" name="field_12_about" value="theme footer 2"/>
+							</div>
+							<div>
+								<label for="f12_3">Scope</label>
+								<select id="f12_3" name="field_12_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f12_4">Type</label>
+								<select id="f12_4" name="field_12_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f12_5">Value</label>
+							<input id="f12_5" type="text" class="text" name="field_12_value" value=""/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f13_1">Name</label>
+								<input id="f13_1" type="text" class="text" name="field_13_key" value="footer3"/>
+							</div>
+							<div>
+								<label for="f13_2">About</label>
+								<input id="f13_2" type="text" class="text" name="field_13_about" value="theme footer 3"/>
+							</div>
+							<div>
+								<label for="f13_3">Scope</label>
+								<select id="f13_3" name="field_13_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f13_4">Type</label>
+								<select id="f13_4" name="field_13_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f13_5">Value</label>
+							<input id="f13_5" type="text" class="text" name="field_13_value" value=""/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f14_1">Name</label>
+								<input id="f14_1" type="text" class="text" name="field_14_key" value="working_hrs"/>
+							</div>
+							<div>
+								<label for="f14_2">About</label>
+								<input id="f14_2" type="text" class="text" name="field_14_about" value=""/>
+							</div>
+							<div>
+								<label for="f14_3">Scope</label>
+								<select id="f14_3" name="field_14_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f14_4">Type</label>
+								<select id="f14_4" name="field_14_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f14_5">Value</label>
+							<input id="f14_5" type="text" class="text" name="field_14_value" value="Sun - Sat 09:00-19:00"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f15_1">Name</label>
+								<input id="f15_1" type="text" class="text" name="field_15_key" value="breadcrumbs_subonly"/>
+							</div>
+							<div>
+								<label for="f15_2">About</label>
+								<input id="f15_2" type="text" class="text" name="field_15_about" value=""/>
+							</div>
+							<div>
+								<label for="f15_3">Scope</label>
+								<select id="f15_3" name="field_15_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f15_4">Type</label>
+								<select id="f15_4" name="field_15_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f15_5">Value</label>
+							<input id="f15_5" type="text" class="text" name="field_15_value" value="N"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f16_1">Name</label>
+								<input id="f16_1" type="text" class="text" name="field_16_key" value="sidebar1"/>
+							</div>
+							<div>
+								<label for="f16_2">About</label>
+								<input id="f16_2" type="text" class="text" name="field_16_about" value="sidebar1"/>
+							</div>
+							<div>
+								<label for="f16_3">Scope</label>
+								<select id="f16_3" name="field_16_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system" selected="selected">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f16_4">Type</label>
+								<select id="f16_4" name="field_16_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f16_5">Value</label>
+							<input id="f16_5" type="text" class="text" name="field_16_value" value="&lt;h1&gt;Features&lt;/h1&gt; &lt;ul&gt;  &lt;li&gt;XML based data storage&lt;/li&gt;  &lt;li&gt;&#039;Undo&#039; protection &amp;amp; backups&lt;/li&gt;  &lt;li&gt;Easy to theme&lt;/li&gt;  &lt;/ul&gt; &lt;p&gt;This is your sidebar text. Please change me in &lt;em&gt;Theme -&amp;gt; Edit Components&lt;/em&gt;&lt;/p&gt; &lt;p&gt;Github page: &lt;a href=&quot;https://github.com/sallecta/conger&quot; target=&quot;_blank&quot;&gt;sallecta/conger&lt;/a&gt;.&lt;/p&gt;	"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f17_1">Name</label>
+								<input id="f17_1" type="text" class="text" name="field_17_key" value="sidebar2"/>
+							</div>
+							<div>
+								<label for="f17_2">About</label>
+								<input id="f17_2" type="text" class="text" name="field_17_about" value=""/>
+							</div>
+							<div>
+								<label for="f17_3">Scope</label>
+								<select id="f17_3" name="field_17_scope" class="text short">
+									<option value="all" selected="selected">All</option>
+									<option value="system">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f17_4">Type</label>
+								<select id="f17_4" name="field_17_type" class="text short">
+									<option value="text">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor" selected="selected">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f17_5">Value</label>
+							<input id="f17_5" type="text" class="text" name="field_17_value" value="&lt;h1&gt;Features&lt;/h1&gt; &lt;ul&gt;  &lt;li&gt;XML based data storage&lt;/li&gt;  &lt;li&gt;&#039;Undo&#039; protection &amp;amp; backups&lt;/li&gt;  &lt;li&gt;Easy to theme&lt;/li&gt;  &lt;/ul&gt; &lt;p&gt;This is your sidebar text. Please change me in &lt;em&gt;Theme -&amp;gt; Edit Components&lt;/em&gt;&lt;/p&gt; &lt;p&gt;Github page: &lt;a href=&quot;https://github.com/sallecta/conger&quot; target=&quot;_blank&quot;&gt;sallecta/conger&lt;/a&gt;.&lt;/p&gt;	"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f18_1">Name</label>
+								<input id="f18_1" type="text" class="text" name="field_18_key" value="cpath"/>
+							</div>
+							<div>
+								<label for="f18_2">About</label>
+								<input id="f18_2" type="text" class="text" name="field_18_about" value="predefined_var"/>
+							</div>
+							<div>
+								<label for="f18_3">Scope</label>
+								<select id="f18_3" name="field_18_scope" class="text short">
+									<option value="all" selected="selected">All</option>
+									<option value="system">System</option>
+									<option value="page">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f18_4">Type</label>
+								<select id="f18_4" name="field_18_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f18_5">Value</label>
+							<input id="f18_5" type="text" class="text" name="field_18_value" value="/conger/"/>
+						</div>
+					</div> <!-- field -->
+					<div class="field">
+						<div class="cfg">
+							<div>
+								<label for="f19_1">Name</label>
+								<input id="f19_1" type="text" class="text" name="field_19_key" value="pages"/>
+							</div>
+							<div>
+								<label for="f19_2">About</label>
+								<input id="f19_2" type="text" class="text" name="field_19_about" value="predefined_fn"/>
+							</div>
+							<div>
+								<label for="f19_3">Scope</label>
+								<select id="f19_3" name="field_19_scope" class="text short">
+									<option value="all">All</option>
+									<option value="system">System</option>
+									<option value="page" selected="selected">Page</option>
+								</select>
+							</div>
+							<div>
+								<label for="f19_4">Type</label>
+								<select id="f19_4" name="field_19_type" class="text short">
+									<option value="text" selected="selected">Text field</option>
+									<option value="textfull">Long text field</option>
+									<option value="dropdown">Dropdown box</option>
+									<option value="checkbox">Check box</option>
+									<option value="web_editor">Web editor</option>
+									<option value="image">Image</option>
+									<option value="file">File</option>
+									<option value="link">Link</option>
+								</select>
+							</div>
+							<div class="delete"><a href="" class="delete" title="Delete field">X</a></div>
+						</div>
+						<div class="control">
+							<label for="f19_5">Value</label>
+							<input id="f19_5" type="text" class="text" name="field_19_value" value="pages"/>
+						</div>
+					</div> <!-- field -->
+					<div><a href="" class="add">Add new field</a></div>
+					<div class="secondarylink"><a href="" class="add" title="Add new field">+</a></div>
+				</div> <!-- sortman -->
+				<input type="submit" name="save" value="Save Fields" class="submit"/>
+			</form>
+			<p id="pg_counter" style="margin-top:20px;"><em id="fields_total">20</em> total field(s).</p>
+		<script  src="../client_ui/client_ui.js"></script>
+		<script>
+		client_ui.run = function()
+		{
+			el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version;
+			
+			client_ui.mdls.sortman.run('.field');
+		}
+		</script>
+	</body>
+</html>

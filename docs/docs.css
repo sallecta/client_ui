@@ -53,6 +53,7 @@ pre code {
 	background: #f0f0f0;
 	border-radius: 0.5rem;
 	padding: 0.8rem;
+	margin-bottom:0.4rem;
 	border: 1px solid #e6e6e6;
 	color: #407303;
 }
@@ -82,6 +83,62 @@ table.sortman, .sortman th, .sortman td
 	justify-content: center;
 }
 /* end sortman example */
+/* sortman fields example*/
+.sortman .field {
+	display: flex;
+	padding: 0.2rem;
+	flex-direction: column;
+	border: 1px solid #00000036;
+	margin: 0 0 1.5rem 0;
+	border-radius: 0.2rem;
+	padding: 0.4rem 0.4rem 0.6rem 0.4rem;
+	background: #0000001c;
+}
+.sortman .field > .cfg {
+	display: flex;
+	padding: 0.1rem;
+}
+.sortman .field > .cfg a.delete {
+	width: 90%;
+	background: #8883834d;
+	height: 90%;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	border-radius: 0.2rem;
+	margin-left: 0.2rem;
+}
+.sortman .field > .cfg > div {
+	display: flex;
+	margin: 0;
+	margin-right: 0.2rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+}
+.sortman .field > .cfg > div:last-child {
+	margin: 0;
+}
+.sortman .field > .control {
+	margin: 0.4rem 0 0 0;
+}
+.sortman .field label {
+	font-weight: normal;
+	font-style: italic;
+	font-size: smaller;
+}
+form.sortman input.text, form.sortman select.text {
+	width: 100%;
+	box-sizing: border-box;
+	height: 25px;
+}
+form.sortman
+{
+	width:70%;
+	margin: 0 auto;
+}
+/* end sortman fields example*/
 
 /* to_top example */
 
@@ -95,3 +152,16 @@ table.sortman, .sortman th, .sortman td
 	text-align: left;
 }
 /* end to_top example */
+.incomplite {
+}
+.incomplite::before {
+	background: white;
+	margin: 0.4rem;
+	content: "\026A0 Incomplite. ";
+	font-weight: normal;
+	color: #ff3c00ab;
+	padding: 0.4rem;
+	text-align: center;
+	outline: 1px solid #ff3c0061;
+	border-radius: 0.2rem;
+}
