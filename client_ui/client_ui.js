@@ -1,6 +1,6 @@
 "use strict";
 const client_ui = {};
-client_ui.version = '0.4.0';//https://semver.org/
+client_ui.version = '0.4.1';//https://semver.org/
 client_ui.name = 'client_ui';
 client_ui.resources = ['core','gallery'];
 client_ui.resources = [];

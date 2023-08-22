@@ -346,6 +346,13 @@ new function()
 		
 		new_inst.ev = {};
 		
+		for(let ndx=0; ndx < dest_els.length; ndx++)
+		{
+			const dest_el = dest_els[ndx];
+			dest_el.ac={};
+			dest_el.ac.ev={};
+			dest_el.ac.ndx = ndx;
+		}
 		
 		if ( !a_cfg.disabled )
 		{

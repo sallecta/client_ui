@@ -18,7 +18,7 @@
 		<h2>Client UI Sortman examples</h2>
 		<p><a href="sortman.html">Visit</a>.</p>
 		<h3 class="complite">Client UI Sortman form fields example</h3>
-		<h4 class="complite">Enable drag sort on selected elements</h4>
+		<h4 class="incomplite">Enable drag sort on selected elements</h4>
 <pre><code>client_ui.run = function()
 {
 	client_ui.mdls.sortman.run('.field');
@@ -29,8 +29,10 @@
 {
 	el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version;
 	
-	const inst = client_ui.mdls.sortman.run('.field',{disabled:true});
+	//const inst = client_ui.mdls.sortman.run('.field',{disabled:true});
+	const inst = client_ui.mdls.sortman.run('.field');
 	el_drag_ctrl = document.querySelector('#drag_ctrl');
+			console.log('inst.ev_listeners_status',inst.ev_listeners_status);
 	if ( inst.ev_listeners_status == '-' )
 	{
 		el_drag_ctrl.innerHTML='Enable';
@@ -830,7 +832,8 @@
 		{
 			el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version;
 			
-			const inst = client_ui.mdls.sortman.run('.field',{disabled:true});
+			//const inst = client_ui.mdls.sortman.run('.field',{disabled:true});
+			const inst = client_ui.mdls.sortman.run('.field');
 			el_drag_ctrl = document.querySelector('#drag_ctrl');
 			toggleInner();
 			
