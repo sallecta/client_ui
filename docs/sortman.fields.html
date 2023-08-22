@@ -17,12 +17,48 @@
 		<p><a href="../index.html">Home</a>.</p>
 		<h2>Client UI Sortman examples</h2>
 		<p><a href="sortman.html">Visit</a>.</p>
-		<h3 class="incomplite">Client UI Sortman form fields example</h3>
+		<h3 class="complite">Client UI Sortman form fields example</h3>
+		<h4 class="complite">Enable drag sort on selected elements</h4>
 <pre><code>client_ui.run = function()
 {
 	client_ui.mdls.sortman.run('.field');
 }
 </code></pre>
+		<h4 class="complite">Start Sortman and enable drag sorting later by click</h4>
+<pre><code>client_ui.run = function()
+{
+	el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version;
+	
+	const inst = client_ui.mdls.sortman.run('.field',{disabled:true});
+	el_drag_ctrl = document.querySelector('#drag_ctrl');
+	if ( inst.ev_listeners_status == '-' )
+	{
+		el_drag_ctrl.innerHTML='Enable';
+	}
+	else if ( inst.ev_listeners_status == '+' )
+	{
+		el_drag_ctrl.innerHTML='Disable';
+	}
+	drag_ctrl.addEventListener('click', function(a_ev)
+		{
+			const app=client_ui.mdls.sortman;
+			if ( inst.ev_listeners_status == '-' )
+			{
+				client_ui.mdls.sortman.ev_listeners(inst,'add');
+				a_ev.target.innerHTML='Disable';
+			}
+			else if ( inst.ev_listeners_status == '+' )
+			{
+				client_ui.mdls.sortman.ev_listeners(inst,'remove');
+				a_ev.target.innerHTML='Enable';
+			}
+			a_ev.preventDefault();
+		}
+	);
+}
+</code></pre>
+
+			<p><a href="" id="drag_ctrl">Toggle</a></p>
 			<form method="post" id="field_form" class="sortman">
 				<div id="editfields" class="sortman" >
 					<div class="field">
@@ -785,19 +821,46 @@
 							<input id="f19_5" type="text" class="text" name="field_19_value" value="pages"/>
 						</div>
 					</div> <!-- field -->
-					<div><a href="" class="add">Add new field</a></div>
-					<div class="secondarylink"><a href="" class="add" title="Add new field">+</a></div>
 				</div> <!-- sortman -->
 				<input type="submit" name="save" value="Save Fields" class="submit"/>
 			</form>
-			<p id="pg_counter" style="margin-top:20px;"><em id="fields_total">20</em> total field(s).</p>
 		<script  src="../client_ui/client_ui.js"></script>
 		<script>
 		client_ui.run = function()
 		{
 			el=document.querySelector('h1');el.innerHTML=el.innerHTML+' '+client_ui.version;
 			
-			client_ui.mdls.sortman.run('.field');
+			const inst = client_ui.mdls.sortman.run('.field',{disabled:true});
+			el_drag_ctrl = document.querySelector('#drag_ctrl');
+			toggleInner();
+			
+			drag_ctrl.addEventListener('click', function(a_ev)
+				{
+					const app=client_ui.mdls.sortman;
+					if ( inst.ev_listeners_status == '-' )
+					{
+						client_ui.mdls.sortman.ev_listeners(inst,'add');
+						toggleInner();
+					}
+					else if ( inst.ev_listeners_status == '+' )
+					{
+						client_ui.mdls.sortman.ev_listeners(inst,'remove');
+						toggleInner();
+					}
+					a_ev.preventDefault();
+				}
+			);
+			function toggleInner()
+			{
+				if ( inst.ev_listeners_status == '-' )
+				{
+					el_drag_ctrl.innerHTML='Enable Sortman';
+				}
+				else if ( inst.ev_listeners_status == '+' )
+				{
+					el_drag_ctrl.innerHTML='Disable Sortman';
+				}
+			}
 		}
 		</script>
 	</body>

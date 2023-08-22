@@ -120,6 +120,7 @@ new function()
 		//noconsole.log('src_d','a_ev.target',a_ev.target);
 		this.inst.el_src.classList.remove(mdl.defs.cl_src);
 	};
+	mdl.ev.src_d.type = 'drag';
 	mdl.ev.src_d_start= function( a_ev )
 	{
 		const me = mdl.name+'.ev.src_d_start';
@@ -133,6 +134,7 @@ new function()
 		//console.log(me,'got el_src',this.inst.el_src);
 		this.inst.el_src.classList.add(mdl.defs.cl_src);
 	};
+	mdl.ev.src_d_start.type = 'dragstart';
 	mdl.ev.src_d_end = function( a_ev )
 	{
 		const me = mdl.name+'.ev.src_d_end';
@@ -146,6 +148,7 @@ new function()
 		el.classList.remove(mdl.defs.cl_src);
 		//console.log(me);
 	};
+	mdl.ev.src_d_end.type = 'dragend';
 	mdl.ev.dest_d_enter = function( a_ev )
 	{
 		a_ev.preventDefault();
@@ -180,11 +183,13 @@ new function()
 		}
 		//noconsole.log(me,'entered to',el, 'el_src is',this.inst.el_src, 'direction',this.inst.direction);
 	};
+	mdl.ev.dest_d_enter.type = 'dragenter';
 	mdl.ev.dest_d_over = function( a_ev ) 
 	{// fires a lot of times, do as minimal as possible
 		//noconsole.log('dest_d_over');  
 		a_ev.preventDefault();// to allow drop
 	};
+	mdl.ev.dest_d_over.type = 'dragover';
 	mdl.ev.dest_d_leave=function( a_ev )
 	{
 		/* fires after drag enter ev, useless. */
@@ -199,6 +204,7 @@ new function()
 		//el.classList.remove(mdl.defs.cl_dest);
 		//el.classList.remove(mdl.defs.cl_src);
 	};
+	mdl.ev.dest_d_leave.type = 'dragleave';
 	mdl.ev.dest_d_drop = function( a_ev )
 	{
 		const me = mdl.name+'.ev.dest_d_drop';
@@ -218,9 +224,86 @@ new function()
 		}
 		//this.inst.el_src.parentNode.removeChild(this.inst.el_src);
 		if ( this.inst.direction==mdl.defs.forw )
-		{ mdl.ins_after(el, this.inst.el_src, this.inst); }
+		{
+			mdl.ins_after(el, this.inst.el_src, this.inst);
+		}
 		else if ( this.inst.direction==mdl.defs.backw )
-		{ mdl.ins_before(el, this.inst.el_src, this.inst); }
+		{
+			mdl.ins_before(el, this.inst.el_src, this.inst);
+		}
+		this.inst.el_src.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+	};
+	mdl.ev.dest_d_drop.type = 'drop';
+	
+	mdl.ev_listeners = function( a_inst, a_act='add' )
+	{
+		const me = mdl.name+'.evlisteners';
+		
+		let status;
+		const dest_els = a_inst.dest_els;
+		if ( a_act == 'add' )
+		{
+			if ( '+'==a_inst.ev_listeners_status )
+			{
+				console.warn(me,'already added',a_inst);
+				return;
+			}
+			const fn = 'addEventListener';
+			status = '+';
+			const to_fn = {inst:a_inst};
+			for(let ndx=0; ndx < dest_els.length; ndx++)
+			{
+				const dest_el = dest_els[ndx];
+				dest_el.ac={};
+				dest_el.ac.ev={};
+				const ev=dest_el.ac.ev;
+				dest_el.ac.ndx = ndx;
+				
+							
+				for(const evkey in mdl.ev)
+				{
+					const listener = mdl.ev[evkey];
+					ev[evkey] = new AbortController();
+					//console.log(me,'evkey',evkey,'type',listener.type);
+					dest_el[fn](listener.type, listener.bind(to_fn),{signal:ev[evkey].signal});
+				}
+				
+				dest_el.setAttribute('draggable', true);
+				dest_el.classList[a_act](mdl.defs.cl_point);
+			}
+			dest_els[0].parentElement.style.setProperty('--disp', a_inst.display);
+			dest_els[0].parentElement.classList.add('sortman');
+		}
+		else if ( a_act == 'remove' )
+		{
+			if ( '-'==a_inst.ev_listeners_status )
+			{
+				console.warn(me,'already removed',a_inst);
+				return;
+			}
+			const fn = 'removeEventListener';
+			status = '-';
+			for(let ndx=0; ndx < dest_els.length; ndx++)
+			{
+				const dest_el = dest_els[ndx];
+				const ev=dest_el.ac.ev;
+				//console.log(me, 'working on',dest_el,'ev',ev);
+				for(const evkey in ev)
+				{
+					//console.log(me, '- evkey',evkey,ev[evkey]);
+					ev[evkey].abort();
+				}
+				
+				dest_el.setAttribute('draggable', false);
+				dest_el.classList.remove(mdl.defs.cl_point);
+			}
+		}
+		else
+		{
+			console.warn(me,'bad a_act',a_act);
+			return;
+		}
+		a_inst.ev_listeners_status=status;
 	};
 	
 	mdl.configure = function ()
@@ -237,7 +320,7 @@ new function()
 		mdl.configured=true;
 	}
 	
-	mdl.run = function ( a_selector )
+	mdl.run = function ( a_selector, a_cfg={} )
 	{
 		const me = mdl.name+'.run';
 		if ( !mdl.configured )
@@ -261,31 +344,20 @@ new function()
 		
 		new_inst.display=getComputedStyle(dest_els[0]).getPropertyValue('display');
 		
-		mdl.inst.push( new_inst );
+		new_inst.ev = {};
 		
-		const to_fn = {inst:new_inst};
 		
-		for(let ndx=0; ndx < dest_els.length; ndx++)
+		if ( !a_cfg.disabled )
 		{
-			const dest_el = dest_els[ndx];
-			dest_el.ac={};
-			dest_el.ac.ndx = ndx;
-			
-			dest_el.addEventListener('dragstart', mdl.ev.src_d_start.bind(to_fn));
-			dest_el.addEventListener('drag', mdl.ev.src_d.bind(to_fn));
-			dest_el.addEventListener('dragend', mdl.ev.src_d_end.bind(to_fn));
-			dest_el.setAttribute('draggable', true);
-			
-			dest_el.addEventListener('dragenter', mdl.ev.dest_d_enter.bind(to_fn));
-			dest_el.addEventListener('dragover', mdl.ev.dest_d_over.bind(to_fn));
-			dest_el.addEventListener('dragleave', mdl.ev.dest_d_leave.bind(to_fn));
-			dest_el.addEventListener('drop', mdl.ev.dest_d_drop.bind(to_fn));
-			
-			dest_el.classList.add(mdl.defs.cl_point);
+			mdl.ev_listeners(new_inst, 'add');
+		}
+		else
+		{
+			new_inst.ev_listeners_status='-';
 		}
 		
-		dest_els[0].parentElement.style.setProperty('--disp', new_inst.display);
-		dest_els[0].parentElement.classList.add('sortman');
+		mdl.inst.push( new_inst );
+		
 		return new_inst;
 	} // mdl.run
 
